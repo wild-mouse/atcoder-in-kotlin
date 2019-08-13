@@ -1,4 +1,4 @@
-package com.wildmouse.atcoder.beginner.c136
+package com.wildmouse.atcoder.contest.beginner.c136
 
 import java.util.*
 
