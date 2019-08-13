@@ -23,6 +23,7 @@ fun main(args: Array<String>) {
     }
 }
 
+// TODO: this algorithm is incorrect.
 fun getMinimalCost(hs: IntArray, k: Int): Int {
     val cs = IntArray(hs.size)
     cs[1] = 0

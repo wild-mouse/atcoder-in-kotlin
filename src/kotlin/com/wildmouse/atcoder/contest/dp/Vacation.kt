@@ -20,6 +20,7 @@ fun main(args: Array<String>) {
     }
 }
 
+// TODO: this algorithm is incorrect.
 fun getMaximumHapinessLevel(hs: Array<Triple<Int, Int, Int>>): Int {
     val hhs = IntArray(hs.size)
     var j = -1
