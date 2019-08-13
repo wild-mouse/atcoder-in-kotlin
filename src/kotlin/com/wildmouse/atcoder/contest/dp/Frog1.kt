@@ -15,13 +15,27 @@ fun main(args: Array<String>) {
         for (i in 0 until n) {
             hs[i] = sc.nextInt()
         }
-        val c1 = calcMinCost2(hs)
-        println(c1)
+        val c = calcMinCost3(hs)
+        println(c)
     } catch (e: Exception) {
         println(e)
     }
 }
 
+fun calcMinCost3(hs: IntArray): Int {
+    val cs = IntArray(hs.size)
+    cs[0] = 0
+    cs[1] = abs(hs[0] - hs[1])
+    for (i in 2 until hs.size) {
+        cs[i] = min(
+                cs[i - 2] + abs(hs[i - 2] - hs[i]),
+                cs[i - 1] + abs(hs[i - 1] - hs[i])
+        )
+    }
+    return cs[hs.size - 1]
+}
+
+// This algorithm is slow.
 fun calcMinCost2(hs: IntArray, i: Int = 0, c: Int = 0): Int {
     if (hs.size - 1 == i) return c
     if (hs.size - 1 == i + 1) return c + abs(hs[i] - hs[i + 1])
@@ -31,7 +45,7 @@ fun calcMinCost2(hs: IntArray, i: Int = 0, c: Int = 0): Int {
     )
 }
 
-// This is algorithm is incorrect.
+// This algorithm is incorrect.
 fun calcMinCost1(hs: IntArray, i: Int = 0, c: Int = 0): Int {
     if (hs.size - 1 == i) return c
     if (hs.size - 1 == i + 1) return c + abs(hs[i] - hs[i + 1])
